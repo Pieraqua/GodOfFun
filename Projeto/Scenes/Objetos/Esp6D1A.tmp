@@ -60,16 +60,16 @@ position = Vector2(6, -24)
 sprite_frames = SubResource("SpriteFrames_xjikq")
 animation = &"attack"
 
-[node name="Hitbox" type="Area2D" parent="AnimatedSprite2D"]
-position = Vector2(0, -10)
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(6, -34)
 collision_layer = 0
 collision_mask = 2
 
-[node name="HitboxPrincipal" type="CollisionShape2D" parent="AnimatedSprite2D/Hitbox"]
+[node name="HitboxPrincipal" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(31.5, 13)
 shape = SubResource("RectangleShape2D_gr6m2")
 
-[node name="HitboxIndicator" type="ColorRect" parent="AnimatedSprite2D/Hitbox/HitboxPrincipal"]
+[node name="HitboxIndicator" type="ColorRect" parent="Hitbox/HitboxPrincipal"]
 visible = false
 offset_left = -34.5
 offset_top = -22.0
