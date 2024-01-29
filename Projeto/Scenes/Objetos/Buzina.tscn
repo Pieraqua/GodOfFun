@@ -55,5 +55,11 @@ collision_mask = 2
 position = Vector2(631, 19)
 shape = SubResource("CircleShape2D_36y85")
 
+[node name="HitboxIndicator" type="Polygon2D" parent="Hitbox/HitboxPrincipal"]
+visible = false
+position = Vector2(-531, -6)
+color = Color(1, 0, 0, 0.380392)
+polygon = PackedVector2Array(1, -2, 28, 173, 130, 365, 287, 474, 404, 523, 532, 540, 677, 518, 796, 469, 904, 383, 991, 274, 1047, 129, 1062, -15, 1037, -150, 980, -278, 904, -387, 790, -464, 653, -515, 519, -530, 383, -510, 263, -463, 145, -372, 68, -266, 14, -130)
+
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
