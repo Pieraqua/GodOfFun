@@ -3,46 +3,49 @@
 [ext_resource type="Texture2D" uid="uid://cuqo53x5gghqd" path="res://sprites/Objetos/Blade_of_Joy.png" id="1_ko1v1"]
 [ext_resource type="Script" path="res://Scenes/Objetos/Weapon.gd" id="1_pwis4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4gw3o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlbac"]
 atlas = ExtResource("1_ko1v1")
-region = Rect2(0, 0, 60, 60)
+region = Rect2(0, 0, 60, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vfbck"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g63ve"]
 atlas = ExtResource("1_ko1v1")
-region = Rect2(60, 0, 60, 60)
+region = Rect2(60, 0, 60, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1dtkr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_luax3"]
 atlas = ExtResource("1_ko1v1")
-region = Rect2(120, 0, 60, 60)
+region = Rect2(120, 0, 60, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a03u5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6si6o"]
 atlas = ExtResource("1_ko1v1")
-region = Rect2(180, 0, 60, 60)
+region = Rect2(180, 0, 60, 46)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0aigh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqj0l"]
 atlas = ExtResource("1_ko1v1")
-region = Rect2(240, 0, 60, 60)
+region = Rect2(240, 0, 60, 46)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xjikq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4gw3o")
+"texture": SubResource("AtlasTexture_jlbac")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vfbck")
+"texture": SubResource("AtlasTexture_g63ve")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1dtkr")
+"texture": SubResource("AtlasTexture_luax3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a03u5")
+"texture": SubResource("AtlasTexture_6si6o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0aigh")
+"texture": SubResource("AtlasTexture_eqj0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlbac")
 }],
 "loop": false,
-"name": &"default",
+"name": &"attack",
 "speed": 10.0
 }]
 
@@ -53,18 +56,17 @@ radius = 37.0
 script = ExtResource("1_pwis4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(26, -20)
+position = Vector2(6, -24)
 sprite_frames = SubResource("SpriteFrames_xjikq")
-frame = 4
-frame_progress = 1.0
+animation = &"attack"
 
 [node name="Hitbox" type="Area2D" parent="."]
-position = Vector2(26, -20)
+position = Vector2(6, -34)
 collision_layer = 0
 collision_mask = 2
 
 [node name="HitboxPrincipal" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(15, 13)
+position = Vector2(30, 18)
 shape = SubResource("CircleShape2D_36y85")
 
 [node name="ReloadTimer" type="Timer" parent="."]

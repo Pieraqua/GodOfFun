@@ -6,21 +6,31 @@ const MAX_HP = 100
 var hitpoints = MAX_HP
 var damage_sources : Array[int] = []
 
+var weapon_pos_y = 0
+
 @onready var Globals = get_node("/root/MainScene")
-@onready var UI_HP = get_node("/root/MainScene/UI/Container_pontos/HPBar")
-@onready var _animated_sprite = $AnimatedSprite2D
-@onready var horn = get_node("WeaponHolster")
+@onready var UI_HP = Globals.get_node("UI/Container_pontos/HPBar")
 
 func _ready():
 	Globals.set("player", self)
 	hitpoints = MAX_HP
-	UI_HP.value = hitpoints
-	_animated_sprite.play("idle")
+	if UI_HP == null:
+		print("Player - UI_HP nao encontrado")
+	if UI_HP:
+		UI_HP.value = hitpoints
+		
+	if $WeaponHolster.get_child(0) != null and \
+		 $WeaponHolster.get_child(0).get_child(0) != null and \
+			 $WeaponHolster.get_child(0).get_child(0).get_class() == "AnimatedSprite2D":
+				weapon_pos_y = $WeaponHolster.get_child(0).get_child(0).position.y
+	
+	$AnimatedSprite2D.play("idle")
 
 func _process(delta):
 	if !damage_sources.is_empty():
 		hitpoints -= damage_sources.max()*delta
-		UI_HP.value = hitpoints
+		if UI_HP:
+			UI_HP.value = hitpoints
 		if hitpoints < 0:
 			print("Fim de jogo!")
 			get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
@@ -34,20 +44,32 @@ func _physics_process(_delta):
 	if direction:
 		velocity = direction * SPEED
 		if direction.x > 0:
-			_animated_sprite.play("run_right")
+			$AnimatedSprite2D.play("run_right")
 		elif direction.x < 0:
-			_animated_sprite.play("run_left")
+			$AnimatedSprite2D.play("run_left")
 		elif direction.y > 0:
-			_animated_sprite.play("run_forward")
+			$AnimatedSprite2D.play("run_forward")
 		elif direction.y < 0:
-			_animated_sprite.play("run_back")
+			$AnimatedSprite2D.play("run_back")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-		_animated_sprite.play("idle")
+		$AnimatedSprite2D.play("idle")
 	
-	if horn != null:
-		horn.rotation = mouse_direction.angle()
+	if $WeaponHolster != null:
+		$WeaponHolster.rotation = mouse_direction.angle()
+		if $WeaponHolster.rotation > 1.5 or $WeaponHolster.rotation < -1.5:
+			if $WeaponHolster.get_child(0) != null and $WeaponHolster.get_child(0).get_child(0) != null :
+				if $WeaponHolster.get_child(0).get_child(0).get_class() == "AnimatedSprite2D":
+					$WeaponHolster.get_child(0).get_child(0).flip_v = true
+					$WeaponHolster.get_child(0).get_child(0).position.y = weapon_pos_y + $WeaponHolster.get_child(0) \
+						.get_child(0).sprite_frames.get_frame_texture("attack",0).get_height()
+					#$WeaponHolster.get_child(0).get_child(0).flip_h = true
+		elif $WeaponHolster.get_child(0) != null and $WeaponHolster.get_child(0).get_child(0) != null :
+			if $WeaponHolster.get_child(0).get_child(0).get_class() == "AnimatedSprite2D":
+				#$WeaponHolster.get_child(0).get_child(0).flip_h = false
+				$WeaponHolster.get_child(0).get_child(0).flip_v = false
+				$WeaponHolster.get_child(0).get_child(0).position.y = weapon_pos_y
 	move_and_slide()
 
 

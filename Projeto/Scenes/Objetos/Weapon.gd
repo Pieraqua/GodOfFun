@@ -16,3 +16,4 @@ func hit():
 
 func _on_animation_finish():
 	$AnimatedSprite2D.stop()
+	
