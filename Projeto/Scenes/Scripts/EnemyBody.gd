@@ -1,14 +1,19 @@
 extends CharacterBody2D
 
+class_name Enemy
+
 const SPEED = 100.0
 const ATK = 5
 const HP_MAX = 10
 
+const POINT_VALUE = 5
+const COMBO_RAISE = 1
+
 var hitpoints = HP_MAX
 var dead = false
 
-@onready var Globals = get_node("/root/MainScene")
-@onready var player = Globals.get("player")
+@onready var globals = get_node("/root/MainScene")
+@onready var player = globals.get("player")
 
 # death animation frames and fps
 const N_FRAMES = 17.0
@@ -26,6 +31,10 @@ func die():
 	dead = true
 	velocity = Vector2(0,0)
 	
+	var point_system = globals.get("point_system")
+	
+	if point_system and point_system.has_method("on_monster_killed"):
+		point_system.on_monster_killed(POINT_VALUE, COMBO_RAISE)
 	
 func really_die():
 	var parent = get_parent()

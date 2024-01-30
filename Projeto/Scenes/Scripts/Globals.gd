@@ -2,6 +2,10 @@ extends Node
 
 var player
 enum MONSTER_TYPES {BASIC, BOSS}
+var point_system
+
+func _ready():
+	point_system = $Pontos
 
 # Vetor com os dados de cada monstro
 # [ Points, Combo, HP, ATK ] 

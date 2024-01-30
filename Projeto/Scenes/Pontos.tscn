@@ -4,3 +4,6 @@
 
 [node name="Pontos" type="Node"]
 script = ExtResource("1_wfdgj")
+
+[node name="ComboTimer" type="Timer" parent="."]
+one_shot = true
