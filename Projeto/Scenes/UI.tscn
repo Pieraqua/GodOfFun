@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8lupb8ss615o"]
+[gd_scene load_steps=11 format=3 uid="uid://b8lupb8ss615o"]
 
+[ext_resource type="Script" path="res://Scenes/Scripts/UI.gd" id="1_74fnb"]
 [ext_resource type="Texture2D" uid="uid://dex36v6u3poa6" path="res://sprites/UI/Combo.png" id="1_k3u2t"]
+[ext_resource type="Texture2D" uid="uid://brph7a1qsjshx" path="res://sprites/UI/HP_filling.png" id="2_cro7k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jvgc5"]
 line_spacing = 1.0
@@ -8,30 +10,73 @@ font_size = 15
 font_color = Color(1, 1, 0, 1)
 shadow_color = Color(1, 0, 0, 0)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt2eu"]
+atlas = ExtResource("2_cro7k")
+region = Rect2(0, 0, 1100, 1100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgogr"]
+atlas = ExtResource("2_cro7k")
+region = Rect2(1100, 0, 1100, 1100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ml3d"]
+atlas = ExtResource("2_cro7k")
+region = Rect2(2200, 0, 1100, 1100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlfu3"]
+atlas = ExtResource("2_cro7k")
+region = Rect2(3300, 0, 1100, 1100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12aux"]
+atlas = ExtResource("2_cro7k")
+region = Rect2(4400, 0, 1100, 1100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8djg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt2eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgogr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ml3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlfu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12aux")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_74fnb")
 
 [node name="ContainerPontos" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(400, 100)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -201.0
-offset_right = 201.0
-offset_bottom = 100.0
+offset_right = -82.0
+offset_bottom = 23.0
 grow_horizontal = 2
-alignment = 1
 
 [node name="TexturaCombo" type="TextureRect" parent="ContainerPontos"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 texture = ExtResource("1_k3u2t")
 expand_mode = 3
 
 [node name="TextoCombo" type="Label" parent="ContainerPontos/TexturaCombo"]
 layout_mode = 2
-offset_left = 6.0
-offset_top = 32.0
-offset_right = 36.0
-offset_bottom = 54.0
+offset_left = 5.05298
+offset_top = 33.0
+offset_right = 35.053
+offset_bottom = 55.0
 text = " 0"
 label_settings = SubResource("LabelSettings_jvgc5")
 horizontal_alignment = 2
@@ -44,7 +89,11 @@ visible_ratio = 2.5
 layout_mode = 2
 text = "Pontos: 0"
 
-[node name="HPBar" type="ProgressBar" parent="ContainerPontos"]
-custom_minimum_size = Vector2(150, 0)
+[node name="HPContainer" type="Control" parent="ContainerPontos"]
 layout_mode = 2
-fill_mode = 1
+
+[node name="HPCircle" type="AnimatedSprite2D" parent="ContainerPontos/HPContainer"]
+position = Vector2(67, 55)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_r8djg")
+frame_progress = 0.139862

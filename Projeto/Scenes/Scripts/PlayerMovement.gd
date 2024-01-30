@@ -9,15 +9,16 @@ var damage_sources : Array[int] = []
 var weapon_pos_y = 0
 
 @onready var Globals = get_node("/root/MainScene")
-@onready var UI_HP = Globals.get_node("UI/Container_pontos/HPBar")
 
 func _ready():
 	Globals.set("player", self)
 	hitpoints = MAX_HP
-	if UI_HP == null:
+	
+	var UI = Globals.get_ui()
+	if UI == null:
 		print("Player - UI_HP nao encontrado")
-	if UI_HP:
-		UI_HP.value = hitpoints
+	if UI:
+		UI.update_hp(hitpoints)
 		
 	if $WeaponHolster.get_child(0) != null and \
 		 $WeaponHolster.get_child(0).get_child(0) != null and \
@@ -29,8 +30,9 @@ func _ready():
 func _process(delta):
 	if !damage_sources.is_empty():
 		hitpoints -= damage_sources.max()*delta
-		if UI_HP:
-			UI_HP.value = hitpoints
+		var UI = Globals.get_ui()
+		if UI:
+			UI.update_hp(hitpoints)
 		if hitpoints < 0:
 			print("Fim de jogo!")
 			get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
