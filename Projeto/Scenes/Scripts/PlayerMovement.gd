@@ -58,18 +58,13 @@ func _physics_process(_delta):
 	
 	if $WeaponHolster != null:
 		$WeaponHolster.rotation = mouse_direction.angle()
-		if $WeaponHolster.rotation > 1.5 or $WeaponHolster.rotation < -1.5:
-			if $WeaponHolster.get_child(0) != null and $WeaponHolster.get_child(0).get_child(0) != null :
-				if $WeaponHolster.get_child(0).get_child(0).get_class() == "AnimatedSprite2D":
-					$WeaponHolster.get_child(0).get_child(0).flip_v = true
-					$WeaponHolster.get_child(0).get_child(0).position.y = weapon_pos_y + $WeaponHolster.get_child(0) \
-						.get_child(0).sprite_frames.get_frame_texture("attack",0).get_height()
-					#$WeaponHolster.get_child(0).get_child(0).flip_h = true
-		elif $WeaponHolster.get_child(0) != null and $WeaponHolster.get_child(0).get_child(0) != null :
-			if $WeaponHolster.get_child(0).get_child(0).get_class() == "AnimatedSprite2D":
-				#$WeaponHolster.get_child(0).get_child(0).flip_h = false
-				$WeaponHolster.get_child(0).get_child(0).flip_v = false
-				$WeaponHolster.get_child(0).get_child(0).position.y = weapon_pos_y
+		if $WeaponHolster.rotation > 1.5 or $WeaponHolster.rotation < -1.5  \
+			and $WeaponHolster.get_child(0).has_method("set_flip") \
+			and  $WeaponHolster.get_child(0) != null:
+				$WeaponHolster.get_child(0).set_flip(true)
+		elif $WeaponHolster.get_child(0) != null \
+			and $WeaponHolster.get_child(0).has_method("set_flip") :
+				$WeaponHolster.get_child(0).set_flip(false)
 	move_and_slide()
 
 
