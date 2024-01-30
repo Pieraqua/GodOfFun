@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Mapa
+
 signal map_loaded
 
 @onready var wave_system = get_node("../SistemaDeWave")

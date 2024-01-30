@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Weapon
+
 const ATK = 5
 const RELOAD = 0.5
 

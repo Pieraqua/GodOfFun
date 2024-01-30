@@ -1,7 +1,13 @@
 extends CanvasLayer
 
+func _ready():
+	$ContainerPontos/HPContainer/HPCircle.frame = 4
+
 func _on_update_combo(current_combo : int):
-	get_node("/root/MainScene/UI/Container_pontos/Texto_combo").text = "Combo: " + str(int(current_combo))
+	$ContainerPontos/TexturaCombo/TextoCombo.text = str(int(current_combo))
 	
 func _on_update_points(current_points : int):
-	get_node("/root/MainScene/UI/Container_pontos/Texto_pontos").text = "Pontos: " + str(int(current_points))
+	$ContainerPontos/TextoPontos.text = "Pontos: " + str(int(current_points))
+
+func update_hp(current_hp : float):
+	$ContainerPontos/HPContainer/HPCircle.frame = int(current_hp/20)
