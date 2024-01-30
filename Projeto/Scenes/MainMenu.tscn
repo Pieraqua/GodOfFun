@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bef5nhvt4txe8"]
+[gd_scene load_steps=3 format=3 uid="uid://bef5nhvt4txe8"]
 
+[ext_resource type="Texture2D" uid="uid://bo3jkgkfbjf47" path="res://sprites/UI/Capa_God_of_Fun.png" id="1_oiyvw"]
 [ext_resource type="Script" path="res://Scenes/Scripts/StartGame.gd" id="1_qw4th"]
 
 [node name="MainMenu" type="Control"]
@@ -16,7 +17,15 @@ offset_right = 1149.0
 offset_bottom = 645.0
 color = Color(0.517647, 0.517647, 0.517647, 1)
 
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 955.0
+scale = Vector2(0.908195, 0.68)
+texture = ExtResource("1_oiyvw")
+
 [node name="Title" type="Label" parent="Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,10 +49,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -15.5
-offset_right = 48.0
-offset_bottom = 15.5
+offset_left = -47.5
+offset_top = -130.5
+offset_right = 48.5
+offset_bottom = -99.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start Game"
