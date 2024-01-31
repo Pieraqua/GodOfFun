@@ -2,26 +2,25 @@ extends CharacterBody2D
 
 class_name Enemy
 
-const SPEED = 100.0
-const ATK = 5
-const HP_MAX = 10
+@export var SPEED : float = 100.0
+@export var ATK : float = 5
+@export var HP_MAX : float = 10
 
-const KNOCKBACK = 30
 var current_knockback = 0
 var knockback_dir = Vector2(0,0)
+var initial_knockback = 0
 
-const POINT_VALUE = 5
-const COMBO_RAISE = 1
+@export var POINT_VALUE = 5
+@export var COMBO_RAISE = 1
 
 var hitpoints = HP_MAX
 var dead = false
 
 @onready var globals = get_node("/root/MainScene")
-@onready var player = globals.get("player")
 
 # death animation frames and fps
-const N_FRAMES = 17.0
-const FPS = 10.0
+@export var N_FRAMES = 17.0
+@export var FPS = 10.0
 
 func _ready():
 	$AnimatedSprite2D.play("walk")
@@ -41,12 +40,12 @@ func die():
 		point_system.on_monster_killed(POINT_VALUE, COMBO_RAISE)
 	
 func really_die():
-	var parent = get_parent()
-	get_parent().get_parent().remove_child(parent)
+	get_parent().remove_child(self)
 	
 	
-func hit(damage):
-	current_knockback += KNOCKBACK
+func hit(damage : int, knockback : int) -> void:
+	current_knockback += knockback
+	initial_knockback = knockback
 	knockback_dir = -(global_position.direction_to(globals.get("player").global_position)).normalized()
 	if(hitpoints <= damage):
 		die()
@@ -56,7 +55,7 @@ func hit(damage):
 func _process(_delta):
 	var viewport_size = get_viewport_rect().size
 	var show_arrow = false
-	var arrow_pos = get_viewport_rect().size/2 +  self.global_position - player.global_position
+	var arrow_pos = get_viewport_rect().size/2 +  global_position - globals.get("player").global_position
 	
 	# Flecha para a direita
 	if(arrow_pos.x > viewport_size.x - 4 * 
@@ -91,11 +90,11 @@ func _process(_delta):
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = global_position.direction_to(player.global_position)
+	var direction = global_position.direction_to(globals.get("player").global_position)
 	if current_knockback:
 		velocity = (knockback_dir * SPEED * current_knockback * _delta)
 		current_knockback -= (velocity*_delta).length()
-		if velocity.length() < KNOCKBACK:
+		if velocity.length() < initial_knockback:
 			current_knockback = 0
 		
 	elif direction and !dead:
