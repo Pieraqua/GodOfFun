@@ -6,6 +6,10 @@ const SPEED = 100.0
 const ATK = 5
 const HP_MAX = 10
 
+const KNOCKBACK = 30
+var current_knockback = 0
+var knockback_dir = Vector2(0,0)
+
 const POINT_VALUE = 5
 const COMBO_RAISE = 1
 
@@ -42,6 +46,8 @@ func really_die():
 	
 	
 func hit(damage):
+	current_knockback += KNOCKBACK
+	knockback_dir = -(global_position.direction_to(globals.get("player").global_position)).normalized()
 	if(hitpoints <= damage):
 		die()
 	else:
@@ -86,7 +92,13 @@ func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = global_position.direction_to(player.global_position)
-	if direction and !dead:
+	if current_knockback:
+		velocity = (knockback_dir * SPEED * current_knockback * _delta)
+		current_knockback -= (velocity*_delta).length()
+		if velocity.length() < KNOCKBACK:
+			current_knockback = 0
+		
+	elif direction and !dead:
 		velocity = direction * SPEED
 		if direction.x > 0:
 			$AnimatedSprite2D.flip_h = true

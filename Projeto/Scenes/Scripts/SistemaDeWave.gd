@@ -1,10 +1,22 @@
 extends Node
 
+class_name SistemaDeWave
+
 var Waves : Array[Array] = [
 	[295, "res://Scenes/Waves/Wave_2.tscn"],
 	[290, "res://Scenes/Waves/Wave_1.tscn"],
 	[285, "res://Scenes/Waves/Wave_2.tscn"],
-	[280, "res://Scenes/Waves/Wave_1.tscn"]
+	[280, "res://Scenes/Waves/Wave_1.tscn"],
+	[275, "res://Scenes/Waves/Wave_2.tscn"],
+	[270, "res://Scenes/Waves/Wave_3.tscn"],
+	[265, "res://Scenes/Waves/Wave_4.tscn"],
+	[260, "res://Scenes/Waves/Wave_5.tscn"],
+	[255, "res://Scenes/Waves/Wave_6.tscn"],
+	[250, "res://Scenes/Waves/Wave_7.tscn"],
+	[245, "res://Scenes/Waves/Wave_8.tscn"],
+	[240, "res://Scenes/Waves/Wave_9.tscn"],
+	[235, "res://Scenes/Waves/Wave_10.tscn"],
+	[230, "res://Scenes/Waves/Wave_10.tscn"]
 ]
 
 signal spawn_wave(String)
