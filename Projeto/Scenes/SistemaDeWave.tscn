@@ -5,5 +5,11 @@
 [node name="SistemaDeWave" type="Node"]
 script = ExtResource("1_kwebl")
 
-[node name="Timer3min" type="Timer" parent="."]
+[node name="TimerWaves" type="Timer" parent="."]
 wait_time = 300.0
+one_shot = true
+
+[node name="TimerJogo" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer1Sec" type="Timer" parent="."]

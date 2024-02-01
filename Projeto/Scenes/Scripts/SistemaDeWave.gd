@@ -2,6 +2,8 @@ extends Node
 
 class_name SistemaDeWave
 
+@onready var globals = get_node("/root/MainScene")
+
 var Waves : Array[Array] = [
 	[295, "res://Scenes/Waves/Wave_2.tscn"],
 	[290, "res://Scenes/Waves/Wave_1.tscn"],
@@ -21,14 +23,37 @@ var Waves : Array[Array] = [
 
 signal spawn_wave(String)
 
+@export var time_left = 300
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Timer3min.start(300)
+	$TimerJogo.start(time_left)
+	$TimerJogo.timeout.connect(_time_over)
+	
+	$Timer1Sec.start(1)
+	$Timer1Sec.timeout.connect(_update_time)
+	
+	$TimerWaves.timeout.connect(_on_timer_end)
+	$TimerWaves.start(clamp(time_left - Waves[0][0], 0, time_left))
+	time_left = time_left - clamp(time_left - Waves[0][0], 0, time_left)
+	
+func _update_time():
+	globals.get("ui").update_timer($TimerJogo.time_left)
+	pass
+	
+func _time_over():
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	for wave in Waves:
-		if wave[0] > $Timer3min.get_time_left():
-			emit_signal("spawn_wave", wave[1])
-			Waves.erase(wave)
+func _on_timer_end():
+	emit_signal("spawn_wave", Waves[0][1])
+	Waves.erase(Waves[0])
+	
+	if !Waves.is_empty():
+		$TimerWaves.start(clamp(time_left - Waves[0][0], 0, time_left))
+		time_left = time_left - clamp(time_left - Waves[0][0], 0, time_left)
+	else:
+		if !time_left:
+			# End condition
+			pass 
+		else:
+			$Timer3min.start(time_left)
