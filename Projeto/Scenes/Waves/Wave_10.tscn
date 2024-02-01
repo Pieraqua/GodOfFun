@@ -1,0 +1,131 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh1tctujofmrp"]
+
+[ext_resource type="PackedScene" uid="uid://csx80p08w6qwx" path="res://Scenes/Personagens/Enemy.tscn" id="1_or6bn"]
+
+[node name="Wave" type="Node2D"]
+
+[node name="Enemy7" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(669, 545)
+
+[node name="Enemy6" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(559, 543)
+
+[node name="Enemy5" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(483, 585)
+
+[node name="Enemy2" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(609, 548)
+
+[node name="Enemy" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(387, 563)
+
+[node name="Enemy3" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(443, 556)
+
+[node name="Enemy4" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(511, 549)
+
+[node name="Enemy8" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(1061, 543)
+
+[node name="Enemy9" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(951, 541)
+
+[node name="Enemy10" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(875, 583)
+
+[node name="Enemy11" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(1001, 546)
+
+[node name="Enemy12" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(779, 561)
+
+[node name="Enemy13" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(835, 554)
+
+[node name="Enemy14" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(903, 547)
+
+[node name="Enemy15" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(339, 553)
+
+[node name="Enemy16" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(229, 551)
+
+[node name="Enemy17" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(153, 593)
+
+[node name="Enemy18" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(279, 556)
+
+[node name="Enemy19" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(57, 571)
+
+[node name="Enemy20" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(113, 564)
+
+[node name="Enemy21" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(181, 557)
+
+[node name="Enemy22" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(329, 50)
+
+[node name="Enemy23" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(219, 48)
+
+[node name="Enemy24" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(143, 90)
+
+[node name="Enemy25" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(269, 53)
+
+[node name="Enemy26" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(47, 68)
+
+[node name="Enemy27" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(103, 61)
+
+[node name="Enemy28" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(171, 54)
+
+[node name="Enemy29" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(663, 31)
+
+[node name="Enemy30" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(553, 29)
+
+[node name="Enemy31" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(477, 71)
+
+[node name="Enemy32" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(603, 34)
+
+[node name="Enemy33" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(381, 49)
+
+[node name="Enemy34" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(437, 42)
+
+[node name="Enemy35" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(505, 35)
+
+[node name="Enemy36" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(1045, 51)
+
+[node name="Enemy37" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(935, 49)
+
+[node name="Enemy38" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(859, 91)
+
+[node name="Enemy39" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(985, 54)
+
+[node name="Enemy40" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(763, 69)
+
+[node name="Enemy41" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(819, 62)
+
+[node name="Enemy42" parent="." instance=ExtResource("1_or6bn")]
+position = Vector2(887, 55)

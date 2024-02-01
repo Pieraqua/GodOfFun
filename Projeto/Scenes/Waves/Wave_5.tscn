@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://e5fsqgtlu73n"]
+
+[ext_resource type="PackedScene" uid="uid://csx80p08w6qwx" path="res://Scenes/Personagens/Enemy.tscn" id="1_4tbl8"]
+
+[node name="Wave2" type="Node2D"]
+
+[node name="Enemy7" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(669, 545)
+
+[node name="Enemy6" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(559, 543)
+
+[node name="Enemy5" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(483, 585)
+
+[node name="Enemy2" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(609, 548)
+
+[node name="Enemy" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(387, 563)
+
+[node name="Enemy3" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(443, 556)
+
+[node name="Enemy4" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(511, 549)
+
+[node name="Enemy8" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(673, 64)
+
+[node name="Enemy9" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(563, 62)
+
+[node name="Enemy10" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(487, 104)
+
+[node name="Enemy11" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(613, 67)
+
+[node name="Enemy12" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(391, 82)
+
+[node name="Enemy13" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(447, 75)
+
+[node name="Enemy14" parent="." instance=ExtResource("1_4tbl8")]
+position = Vector2(515, 68)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://rg407sfcs8vb"]
 
 [ext_resource type="Texture2D" uid="uid://cuqo53x5gghqd" path="res://sprites/Objetos/Blade_of_Joy.png" id="1_ko1v1"]
-[ext_resource type="Script" path="res://Scenes/Objetos/Weapon.gd" id="1_pwis4"]
+[ext_resource type="Script" path="res://Scenes/Scripts/Weapon.gd" id="1_y5hdm"]
 [ext_resource type="Texture2D" uid="uid://dtatpgcfy41e7" path="res://sprites/Objetos/Blade_of_Joy_centered.png" id="2_0x5cn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a7llr"]
@@ -59,7 +59,8 @@ animations = [{
 size = Vector2(69, 44)
 
 [node name="Espada" type="Node2D"]
-script = ExtResource("1_pwis4")
+script = ExtResource("1_y5hdm")
+ATK = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(19, -24)

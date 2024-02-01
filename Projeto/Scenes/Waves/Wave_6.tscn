@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://bph40vyqymilj"]
+
+[ext_resource type="PackedScene" uid="uid://csx80p08w6qwx" path="res://Scenes/Personagens/Enemy.tscn" id="1_xyu2q"]
+
+[node name="Wave2" type="Node2D"]
+
+[node name="Enemy7" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(1113, 463)
+
+[node name="Enemy6" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(1086, 362)
+
+[node name="Enemy5" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(1092, 425)
+
+[node name="Enemy2" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(1053, 466)
+
+[node name="Enemy" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(1079, 304)
+
+[node name="Enemy3" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(1052, 396)
+
+[node name="Enemy4" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(1120, 389)
+
+[node name="Enemy8" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(135, 469)
+
+[node name="Enemy9" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(106, 376)
+
+[node name="Enemy10" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(64, 432)
+
+[node name="Enemy11" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(75, 472)
+
+[node name="Enemy12" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(49, 319)
+
+[node name="Enemy13" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(105, 312)
+
+[node name="Enemy14" parent="." instance=ExtResource("1_xyu2q")]
+position = Vector2(58, 382)

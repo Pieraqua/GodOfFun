@@ -2,8 +2,9 @@ extends Node2D
 
 class_name Weapon
 
-const ATK = 5
-const RELOAD = 0.5
+@export var ATK : float = 5
+@export var RELOAD : float = 0.5
+@export var KNOCKBACK : float = 150
 
 @onready var start_pos_y = $AnimatedSprite2D.position.y  
 
@@ -22,7 +23,7 @@ func hit():
 		$ReloadTimer.start(RELOAD)
 		for body in $AnimatedSprite2D/Hitbox.get_overlapping_bodies():
 			if body.has_method("hit"):
-				body.hit(ATK)
+				body.hit(ATK, KNOCKBACK)
 
 func _on_animation_finish():
 	$AnimatedSprite2D.stop()

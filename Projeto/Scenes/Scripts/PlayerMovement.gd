@@ -4,7 +4,7 @@ const SPEED = 300.0
 const MAX_HP = 100
 
 var hitpoints = MAX_HP
-var damage_sources : Array[int] = []
+var damage_sources : Array[float] = []
 
 var weapon_pos_y = 0
 

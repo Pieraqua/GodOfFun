@@ -11,3 +11,6 @@ func _on_update_points(current_points : int):
 
 func update_hp(current_hp : float):
 	$ContainerPontos/HPContainer/HPCircle.frame = int(current_hp/20)
+
+func update_timer(time_left : float):
+	$ContainerPontos/TextoTempo.text = str(int(time_left))
