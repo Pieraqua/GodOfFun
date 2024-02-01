@@ -4,6 +4,7 @@
 
 [node name="SistemaDeWave" type="Node"]
 script = ExtResource("1_kwebl")
+time_left = 60
 
 [node name="TimerWaves" type="Timer" parent="."]
 wait_time = 300.0
